@@ -15,5 +15,10 @@
   <%= @beer.brewery_id %>
 </p>
 
+<p>
+	Has <%= pluralize(@beer.ratings.count, 'rating') %>, average <%= @beer.ratings.average(:score) %>
+</p>
+
+
 <%= link_to 'Edit', edit_beer_path(@beer) %> |
 <%= link_to 'Back', beers_path %>
