@@ -1,10 +1,10 @@
-<%= form_for(membership) do |f| %>
-  <% if membership.errors.any? %>
+<%= form_for(@membership) do |f| %>
+  <% if @membership.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(membership.errors.count, "error") %> prohibited this membership from being saved:</h2>
+      <h2><%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:</h2>
 
       <ul>
-      <% membership.errors.full_messages.each do |message| %>
+      <% @membership.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,15 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :beer_club_id %>
-    <%= f.text_field :beer_club_id %>
+    <%= f.select :beer_club_id, options_from_collection_for_select(@beer_clubs, :id, :name) %>
   </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>
