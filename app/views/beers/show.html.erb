@@ -1,18 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h2>
   <%= @beer.name %>
+</h2>
+
+<p>
+  Brewery by <%= @beer.brewery.name %>
 </p>
 
 <p>
   <strong>Style:</strong>
   <%= @beer.style %>
-</p>
-
-<p>
-  <strong>Brewery:</strong>
-  <%= @beer.brewery_id %>
 </p>
 
 <% if @beer.ratings.empty? %>
@@ -23,4 +21,8 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_beer_path(@beer) %>
+<% if current_user %>
+  <%= link_to 'Edit', edit_beer_path(@beer) %>
+  <%= link_to 'Destroy', @beer, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+

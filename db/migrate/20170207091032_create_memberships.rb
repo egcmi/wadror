@@ -4,7 +4,7 @@ class CreateMemberships < ActiveRecord::Migration[5.0]
       t.integer :beer_club_id
       t.integer :user_id
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
