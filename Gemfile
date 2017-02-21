@@ -81,3 +81,4 @@ gem 'rspec-its'
 gem 'simplecov', require: false
 gem 'httparty'
 gem 'rails-controller-testing'
+gem 'binding_of_caller'

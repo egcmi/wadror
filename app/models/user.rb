@@ -46,5 +46,9 @@ class User < ApplicationRecord
       }
     end  
     averages_of_styles.sort_by{ |b| -b[:rating] }.first[:style]
-  end     
+  end
+
+  def is_member_of?(beer_club)
+    beer_clubs.include? beer_club
+  end
 end
