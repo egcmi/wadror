@@ -1,6 +1,6 @@
 # README
 
-link to heroku application: https://egcmi-ratebeer.herokuapp.com/
+link to heroku application: https://egcmi-ratebeer.herokuapp.com/ (runs locally, problems with heroku :( )
   
 [![Build Status](https://travis-ci.org/egcmi/wadror.png)](https://travis-ci.org/egcmi/wadror)
   
