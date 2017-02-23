@@ -20,7 +20,7 @@
   <p> Favorite brewery: <%= @user.favorite_brewery.name %> </p>
   <p> Favorite style: <%= @user.favorite_style %> </p>
 
-  <p> average rating <%= @user.average_rating %></p>
+  <p> Average rating: <%= @user.average_rating %></p>
 
   <h3>ratings</h3>
 
@@ -39,6 +39,6 @@
 
 
 <% if @user==current_user%>
-  <%= link_to 'change password', edit_user_path(@user) %> <br>
-  <%= link_to 'destroy', @user, method: :delete, data: { confirm: 'Are you sure?' }  %> 
+  <%= link_to 'change password', edit_user_path(@user), class:"btn btn-default" %>
+  <%= link_to 'destroy', @user, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' }  %> 
 <% end %>

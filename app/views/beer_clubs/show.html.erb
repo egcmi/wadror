@@ -21,18 +21,20 @@
 <% end %>
 
 <% if current_user %>
+  <p>
   <% if current_user.is_member_of? @beer_club %>
     <%= form_for(Membership.new, method: "delete") do |f| %>
       <%= f.hidden_field :beer_club_id %>
-      <%= f.submit value: "end membership" %>
+      <%= f.submit value: "end membership", class:"btn btn-warning" %>
     <% end %>     
   <% else %>
     <%= form_for Membership.new do |f| %>
       <%= f.hidden_field :beer_club_id %>
-      <%= f.submit value:"join club" %>
+      <%= f.submit value:"join club", class:"btn btn-primary" %>
     <% end %>
   <% end %>
+  </p>
 
-  <%= link_to 'Edit', edit_beer_club_path(@beer_club) %>
-  <%= link_to 'Destroy', @beer_club, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_beer_club_path(@beer_club), class:"btn btn-default" %>
+  <%= link_to 'Destroy', @beer_club, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
