@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+- 2.4.0
+
+script:
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: GAhmJ1ejnFV0WQ38RMrQVGPe9RPCYo0iqq972hxyzCBiST9Bbbyl0RLQ6fJL3SLf12BotLCYEx2LPN7gRbmbDayLLDFBEVrAVPdyEbV3C/CVqqLfB2bfg8nmFFx+ILJ3tiloGyFY+UBiJw2CSZQtGjTMT+9vrMB0AEze1SMijxgnn7M9DdJbTssTZ0aKGUDqXG00A8zGJ5kAcEEpshsJ7etc+a3ZXlq64z+B/HxlKqARPVtmZMS/gaUkwD0olznOHjyMLRaCN2bytgBe5oCvBTE3+kk8LnOSLjxvti21de4HCqCC21du7iJhcQxpu87vaOxn1yf6NOROaedfGGzh8PHKV1h2lr120TysBzaZzCxuEqUA6LYI0a/inoEWwwtOYxAjbRrB7JACfAFm7piER2eb9XUaA/pc5tRZ7HKHoIcETT6LM+g1N2YkJIXqEiqnXeX1MaaCk+kVj3TpvloLXgbY3OvPgnDHpB05fSRSMHfga4mUWlcH3pzI3O54BzKGOrlohUR5hVqoqAztR24DA4q/VSgArxbSuHbkI3dTiVE1NMcQYx8GFDBhcspql4+S/a3wuYWEIl84UzmHSM+Z4zc99ejwt6l0RJ/r9oZp+r/RzKN5zXBmhlNjro6gMeT0wtIFvilSraI+rQOFCtl51OSNfAXgFCgenJ+gEEn9unE=
+  app: egcmi-ratebeer
+  on:
+    repo: egcmi/wadror
