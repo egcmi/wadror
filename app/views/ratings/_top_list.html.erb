@@ -1,0 +1,28 @@
+<% if elem == @best_beers %>
+	<h3>Best beers</h3>
+<% end %>
+<% if elem == @best_breweries %>
+	<h3>Best breweries</h3>
+<% end %>
+<% if elem == @best_styles %>
+	<h3>Best styles</h3>
+<% end %>
+
+  <table class="table table-hover">
+    <thead>
+
+  <tr>
+    <th></th>
+    <th>average</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% elem.each do |e| %>
+      <tr>
+        <td><%= link_to e.name, e %></td>
+        <td><%= e.average_rating %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

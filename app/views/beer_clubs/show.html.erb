@@ -23,12 +23,11 @@
 <% if current_user %>
   <p>
   <% if current_user.is_member_of? @beer_club %>
-    <%= form_for(Membership.new, method: "delete") do |f| %>
-      <%= f.hidden_field :beer_club_id %>
+    <%= form_for(@membership, method: "delete") do |f| %>
       <%= f.submit value: "end membership", class:"btn btn-warning" %>
     <% end %>     
   <% else %>
-    <%= form_for Membership.new do |f| %>
+    <%= form_for @membership do |f| %>
       <%= f.hidden_field :beer_club_id %>
       <%= f.submit value:"join club", class:"btn btn-primary" %>
     <% end %>

@@ -12,6 +12,13 @@ class Brewery < ApplicationRecord
     scope :active, -> { where active:true }
     scope :retired, -> { where active:[nil,false] }
 
+    def self.top(n)
+		sorted_by_rating_in_desc_order = Brewery.all.sort_by{ |b| -(b.average_rating||0) }
+		top = Array.new(n)
+		top[0..(n-1)] = sorted_by_rating_in_desc_order[0..(n-1)]
+		top
+	end
+
 	def print_report
 		puts name
 		puts "established in year #{year}"

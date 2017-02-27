@@ -51,4 +51,11 @@ class User < ApplicationRecord
   def is_member_of?(beer_club)
     beer_clubs.include? beer_club
   end
+
+  def self.top(n)
+    sorted_by_rating_in_desc_order = User.all.sort_by{ |u| -(u.ratings.count||0) }
+    top = Array.new(n)
+    top[0..(n-1)] = sorted_by_rating_in_desc_order[0..(n-1)]
+    top
+  end
 end

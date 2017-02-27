@@ -1,9 +1,39 @@
-<h2>List of ratings</h2>
+<h2>Ratings stats</h2>
 
 <p>Total of <%= Rating.count %> ratings given</p>
 
+<%= render 'ratings/top_list', elem: @best_beers %>
+<%= render 'ratings/top_list', elem: @best_breweries %>
+<%= render 'ratings/top_list', elem: @best_styles %>
+
+<h3>Most active users</h3>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th></th>
+    <th>favourite beer</th>
+    <th>favourite style</th>
+    <th>favourite brewer</th>
+    <th>ratings</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @best_users.each do |u| %>
+      <tr>
+        <td><%= link_to u.username, u %></td>
+        <td><%= link_to u.favorite_beer, u.favorite_beer if u.favorite_beer%></td>
+        <td><%= link_to u.favorite_style, u.favorite_style if u.favorite_style%></td>
+        <td><%= link_to u.favorite_brewery.name, u.favorite_brewery if u.favorite_brewery%></td>
+        <td><%= u.ratings.count %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h3>Recent ratings</h3>
 <ul>
-  <% @ratings.each do |rating| %>
+  <% @recent_ratings.each do |rating| %>
     <li> <%= rating %> <%= link_to rating.user.username, rating. user %> </li>
   <% end %>
 </ul>
