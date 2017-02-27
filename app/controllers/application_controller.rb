@@ -3,14 +3,19 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  #helper_method :authenticate_admin
   helper_method :current_user
 
   def current_user
     return nil if session[:user_id].nil?
     User.find(session[:user_id])
-  end  
+  end
 
   def ensure_that_signed_in
     redirect_to signin_path, notice:'you should be signed in' if current_user.nil?
-  end  
+  end
+
+  def authenticate_admin
+    redirect_to :back, alert:'you don\'t have admin privileges to destroy this' unless current_user.admin?
+  end
 end
