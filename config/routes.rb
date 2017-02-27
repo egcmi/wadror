@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy'
   root 'breweries#index'
   post 'places', to:'places#search'
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
 end

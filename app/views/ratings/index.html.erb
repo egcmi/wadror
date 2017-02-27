@@ -1,10 +1,16 @@
 <h2>Ratings stats</h2>
 
-<p>Total of <%= Rating.count %> ratings given</p>
-
-<%= render 'ratings/top_list', elem: @best_beers %>
-<%= render 'ratings/top_list', elem: @best_breweries %>
-<%= render 'ratings/top_list', elem: @best_styles %>
+<div class="row">
+	<div class="col-xs-0 col-sm-4">
+		<%= render 'ratings/top_list', elem: @best_beers %>
+	</div>
+	<div class="col-xs-0 col-sm-4">
+		<%= render 'ratings/top_list', elem: @best_breweries %>
+	</div>
+	<div class="col-xs-0 col-sm-4">
+		<%= render 'ratings/top_list', elem: @best_styles %>
+	</div>
+</div>
 
 <h3>Most active users</h3>
 <table class="table table-hover">
