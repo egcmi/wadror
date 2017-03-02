@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h2>
   <strong><%= @style.name %></strong>
 </h2>
@@ -11,7 +9,7 @@
 <h4>Beers</h4>
 
 <% if @style.beers.empty? %>
-<p>no beers yet</p>
+<p>no beers for this style</p>
 <% else %>
 <ul>
  <% @style.beers.each do |beer| %>

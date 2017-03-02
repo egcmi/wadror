@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h2> <%= @user.username %> </h2>
 
 <p>Has made <%= @user.ratings.count %> ratings</p>
@@ -19,7 +17,6 @@
   <p> Favorite beer: <%= @user.favorite_beer.name %> </p>
   <p> Favorite brewery: <%= @user.favorite_brewery.name %> </p>
   <p> Favorite style: <%= @user.favorite_style %> </p>
-
   <p> Average rating: <%= @user.average_rating %></p>
 
   <h3>ratings</h3>
@@ -37,8 +34,11 @@
 
 <% end %>
 
-
 <% if @user==current_user%>
   <%= link_to 'change password', edit_user_path(@user), class:"btn btn-default" %>
   <%= link_to 'destroy', @user, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' }  %> 
+<% end %>
+
+<% if admin_user %>
+  <%= link_to "freeze", toggle_frozen_user_path(@user.id), method: :post, class: "btn btn-primary" %>
 <% end %>

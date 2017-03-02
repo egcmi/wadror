@@ -29,5 +29,4 @@ class BeermappingApi
     ENV['APIKEY']
     # 98f1ab9264ad70456fbb2e809d4c56ef
   end
-
 end
