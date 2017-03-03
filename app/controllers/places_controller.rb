@@ -1,4 +1,4 @@
-require 'lib/beermapping_api'
+require 'beermapping_api.rb'
 
 class PlacesController < ApplicationController
   def index
