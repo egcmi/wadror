@@ -65,6 +65,44 @@
         null,
         null
       ],
+      "/media/emanuela/Windows/Users/Emanuela/Documents/UNI/Web-palvelinohjelmointi Ruby on Rails/ratebeer/app/models/style.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/media/emanuela/Windows/Users/Emanuela/Documents/UNI/Web-palvelinohjelmointi Ruby on Rails/ratebeer/app/models/beer.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
       "/media/emanuela/Windows/Users/Emanuela/Documents/UNI/Web-palvelinohjelmointi Ruby on Rails/ratebeer/app/channels/application_cable/channel.rb": [
         0,
         0,
@@ -879,27 +917,6 @@
         0,
         0
       ],
-      "/media/emanuela/Windows/Users/Emanuela/Documents/UNI/Web-palvelinohjelmointi Ruby on Rails/ratebeer/app/models/beer.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
       "/media/emanuela/Windows/Users/Emanuela/Documents/UNI/Web-palvelinohjelmointi Ruby on Rails/ratebeer/app/models/beer_club.rb": [
         0,
         0,
@@ -913,23 +930,6 @@
         0
       ],
       "/media/emanuela/Windows/Users/Emanuela/Documents/UNI/Web-palvelinohjelmointi Ruby on Rails/ratebeer/app/models/place.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/media/emanuela/Windows/Users/Emanuela/Documents/UNI/Web-palvelinohjelmointi Ruby on Rails/ratebeer/app/models/style.rb": [
-        0,
         0,
         0,
         0,
@@ -1057,6 +1057,6 @@
         0
       ]
     },
-    "timestamp": 1488548126
+    "timestamp": 1488549843
   }
 }

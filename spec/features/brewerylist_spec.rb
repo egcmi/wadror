@@ -27,6 +27,7 @@ describe "brewerylist page" do
 
   it "shows breweries by name in ascending order", js: true do
     visit brewerylist_path
+    click_link('Name')
     find('table').find('tr:nth-child(2)')
     expect(page).to have_content "Ayinger"
     find('table').find('tr:nth-child(3)')
