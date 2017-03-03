@@ -87,3 +87,6 @@ gem 'simplecov', require: false
 gem 'httparty'
 gem 'rails-controller-testing'
 gem 'binding_of_caller'
+gem 'jquery-turbolinks'
+gem 'selenium-webdriver'
+gem 'database_cleaner'

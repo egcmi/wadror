@@ -15,6 +15,8 @@ class SessionsController < ApplicationController
     else
       redirect_to :back, notice: "Username and/or password mismatch"
     end
+    session[:brewery_year_asc] = true 
+    session[:brewery_name_asc] = true 
   end
 
   def destroy

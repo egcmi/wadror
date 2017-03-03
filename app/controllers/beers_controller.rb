@@ -8,6 +8,14 @@ class BeersController < ApplicationController
   # GET /beers.json
   def index
     @beers = Beer.all
+
+    order = params[:order] || 'name'
+
+    @beers = case order
+      when 'name' then @beers.sort_by{ |b| b.name }
+      when 'brewery' then @beers.sort_by{ |b| b.brewery.name }
+      when 'style' then @beers.sort_by{ |b| b.style.name }
+    end
   end
 
   # GET /beers/1
@@ -15,7 +23,7 @@ class BeersController < ApplicationController
   def show
     @rating = Rating.new
     @rating.beer = @beer
-  end
+  endf
 
   # GET /beers/new
   def new
@@ -66,6 +74,12 @@ class BeersController < ApplicationController
     end
   end
 
+  def list
+  end
+
+  def nglist
+  end
+
   private
     def set_breweries_and_styles_for_template
       @breweries = Brewery.all
@@ -81,4 +95,5 @@ class BeersController < ApplicationController
     def beer_params
       params.require(:beer).permit(:name, :style, :brewery_id)
     end
+  end
 end
