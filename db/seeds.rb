@@ -3,10 +3,20 @@ breweries = 50       # jos koneesi on hidas, riittää esim 50
 beers_in_brewery = 40
 ratings_per_user = 30
 
+(1..users).each do |i|
+  User.create! username:"user_#{i}", password:"Passwd1", password_confirmation:"Passwd1"
+end
+
+(1..breweries).each do |i|
+  Brewery.create! name:"Brewery_#{i}", year:1900, active:true
+end
+
+bulk = Style.create! name:"Bulk", description:"cheap, not much taste"
+
 Brewery.all.each do |b|
   n = rand(beers_in_brewery)
   (1..n).each do |i|
-    beer = Beer.new name:"Beer #{b.id} -- #{i}", style_id:Style.last.id
+    beer = Beer.create! name:"Beer #{b.id} -- #{i}", style_id:Style.last.id
     b.beers << beer
   end
 end
