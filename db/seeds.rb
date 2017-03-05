@@ -6,7 +6,7 @@ ratings_per_user = 30
 Brewery.all.each do |b|
   n = rand(beers_in_brewery)
   (1..n).each do |i|
-    beer = Beer.create! name:"Beer #{b.id} -- #{i}", style_id:Style.last.id
+    beer = Beer.new name:"Beer #{b.id} -- #{i}", style_id:Style.last.id
     b.beers << beer
   end
 end
