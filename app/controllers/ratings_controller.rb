@@ -1,10 +1,19 @@
 class RatingsController < ApplicationController
+
   def index
-    @top_breweries = Brewery.top(3) 
-    @top_beers = Beer.top(3) 
-    @top_styles = Style.top(3) 
-    @ratings = Rating.latest(5)  
-    @users = User.most_active(5)  
+    Rails.cache.write('beer top 3', Beer.top(3), :expires_in => 10.minutes)
+    Rails.cache.write('brewery top 3', Brewery.top(3), :expires_in => 10.minutes)
+    Rails.cache.write('style top 3', Style.top(3), :expires_in => 10.minutes)
+    Rails.cache.write('rating latest 5', Rating.latest(5), :expires_in => 10.minutes)
+    Rails.cache.write('user active 5', User.most_active(5), :expires_in => 10.minutes)
+    Rails.cache.write('rating all', Rating.all, :expires_in => 10.minutes)
+
+    @top_beers = Rails.cache.read 'beer top 3'
+    @top_breweries = Rails.cache.read 'brewery top 3'
+    @top_styles = Rails.cache.read 'style top 3'
+    @recent_ratings = Rails.cache.read 'rating latest 5'
+    @most_active_users = Rails.cache.read 'user active 5'
+    @ratings = Rails.cache.read 'rating all'
   end
 
   def new

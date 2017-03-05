@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :admin_user
 
   def current_user
-    return nil if session[:user_id].nil?
+    return nil if session[:user_id].nil? or User.find_by(id:session[:user_id]).nil?
     User.find(session[:user_id])
   end  
 
   def admin_user
-    return nil if session[:user_id].nil?
+    return nil if session[:user_id].nil? or User.find_by(id:session[:user_id]).nil?
     user = User.find(session[:user_id])
     return nil unless user.admin?
     user

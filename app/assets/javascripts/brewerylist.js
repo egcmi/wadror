@@ -5,10 +5,12 @@ BREWERIES.show = function(){
 
     var table = $("#brewerytable");
 
-    $.each(BREWERIES.list, function (index, beer) {
+    $.each(BREWERIES.list, function (index, brewery) {
         table.append('<tr>'
-            +'<td>'+beer['name']+'</td>'
-            +'<td>'+beer['year']+'</td>'
+            +'<td>'+brewery['name']+'</td>'
+            +'<td>'+brewery['year']+'</td>'
+            +'<td>'+brewery['beer_count']+'</td>'
+            +'<td>'+(brewery['active'] ? '' : '<span class="label label-info">retired</span>')+'</td>'
             +'</tr>');
     });
 };
@@ -25,6 +27,12 @@ BREWERIES.sort_by_year = function(){
     });
 };
 
+BREWERIES.sort_by_beer_count = function(){
+    BREWERIES.list.sort( function(a,b){
+        return a.beer_count > b.beer_count;
+    });
+};
+
 BREWERIES.reverse = function(){
     BREWERIES.list.reverse();
 };
@@ -38,6 +46,12 @@ $(document).ready(function () {
 
     $("#year").click(function (e) {
         BREWERIES.sort_by_year();
+        BREWERIES.show();
+        e.preventDefault();
+    });
+
+    $("#beer_count").click(function (e) {
+        BREWERIES.sort_by_beer_count();
         BREWERIES.show();
         e.preventDefault();
     });

@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   get 'beerlist', to:'beers#list'
   get 'ngbeerlist', to:'beers#nglist'
   get 'brewerylist', to:'breweries#list'
+  get 'auth/:provider/callback', to: 'sessions#create_oauth'
 end

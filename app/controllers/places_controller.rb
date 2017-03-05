@@ -1,5 +1,5 @@
-require 'beermapping_api.rb'
-require 'weather_service.rb'
+require 'beermapping_api'
+require 'weather_service'
 
 class PlacesController < ApplicationController
   def index

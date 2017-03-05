@@ -15,8 +15,22 @@ class SessionsController < ApplicationController
     else
       redirect_to :back, notice: "Username and/or password mismatch"
     end
-    session[:brewery_year_asc] = true 
-    session[:brewery_name_asc] = true 
+  end
+
+  def create_oauth
+    user = User.find_by(:username => auth_hash['info']['nickname'])
+    if user.nil?
+      user = User.create username:auth_hash['info']['nickname'], password:"Pass1", password_confirmation:"Pass1"
+      session[:user_id] = user.id
+      redirect_to user_path(user), notice: 'User was successfully created.'
+    else
+      if user.blocked?
+        redirect_to :back, notice: "Your accout is frozen, please contact admin"
+      else
+        session[:user_id] = user.id
+        redirect_to user_path(user), notice: "Welcome back!"
+      end
+    end
   end
 
   def destroy
@@ -24,5 +38,10 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     # uudelleenohjataan sovellus pääsivulle
     redirect_to :root
+  end
+
+  private
+  def auth_hash
+    request.env['omniauth.auth']
   end
 end
